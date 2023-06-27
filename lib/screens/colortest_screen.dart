@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class ColorTestScreen extends StatefulWidget {
+  const ColorTestScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ColorTestScreen> createState() => _ColorTestScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ColorTestScreenState extends State<ColorTestScreen> {
   late Timer timer;
 
   ///변하는 색깔
@@ -19,7 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Colors.green,
     Colors.blue,
     Colors.indigo,
-    Colors.purple
+    Colors.purple,
+    Colors.white,
+    Colors.black
   ];
 
   ///다음색 배열로 변환해주는 변수

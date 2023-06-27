@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/home_screen.dart';
+import 'package:flutter_playground/screens/colortest_screen.dart';
+import 'package:flutter_playground/screens/home_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +12,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const HomeScreen(),
+        ),
+        GetPage(
+          name: '/colortest',
+          page: () => const ColorTestScreen(),
+        )
+      ],
     );
   }
 }
