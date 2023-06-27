@@ -10,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Timer timer;
+
+  ///변하는 색깔
   List<Color> arrColors = [
     Colors.red,
     Colors.orange,
@@ -19,16 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
     Colors.indigo,
     Colors.purple
   ];
-  int nextcolor = 0;
+
+  ///다음색 배열로 변환해주는 변수
+  int _nextcolor = 0;
 
   @override
   void initState() {
     super.initState();
     timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       setState(() {
-        nextcolor++;
-        if (nextcolor >= arrColors.length) {
-          nextcolor = 0;
+        _nextcolor++;
+        if (_nextcolor >= arrColors.length) {
+          _nextcolor = 0;
         }
       });
     });
@@ -39,13 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: InkWell(
         onTap: () => setState(() {
-          nextcolor++;
-          if (nextcolor >= arrColors.length) {
-            nextcolor = 0;
+          _nextcolor++;
+          if (_nextcolor >= arrColors.length) {
+            _nextcolor = 0;
           }
         }),
         child: Container(
-          color: arrColors[nextcolor],
+          color: arrColors[_nextcolor],
         ),
       ),
     );
